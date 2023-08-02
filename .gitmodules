@@ -2,7 +2,6 @@
 	path = zlib
 	url = https://github.com/madler/zlib
 	ignore = dirty
-
 [submodule "external/ncbind"]
 	path = external/ncbind
 	url = https://github.com/uyjulian/ncbind.git
@@ -11,16 +10,18 @@
 	path = external/zlib
 	url = https://github.com/krkrz/zlib.git
 	ignore = dirty
-
 [submodule "external/boost_iostreams"]
 	path = external/boost_iostreams
 	url = https://github.com/boostorg/iostreams.git
+	ignore = dirty
 [submodule "external/boost_filesystem"]
 	path = external/boost_filesystem
 	url = https://github.com/boostorg/filesystem.git
+	ignore = dirty
 [submodule "external/boost_system"]
 	path = external/boost_system
 	url = https://github.com/boostorg/system.git
+	ignore = dirty
 [submodule "external/boost_config"]
 	path = external/boost_config
 	url = https://github.com/boostorg/config.git
