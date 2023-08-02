@@ -3,6 +3,7 @@
 
 //#define LOAD_MEMORY
 
+#include <windows.h>
 #include <tp_stub.h>
 #include "psdparse/psdfile.h"
 
