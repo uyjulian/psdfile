@@ -22,7 +22,21 @@
 #include <algorithm>
 
 #if 1
+
+// endian.hの場所と内容が1.73から変更になっているので対応
+#include <boost/version.hpp>
+#if BOOST_VERSION  >= 107300
+#include <boost/predef/other/endian.h>
+#if !defined(BOOST_LITTLE_ENDIAN)
+#define BOOST_LITTLE_ENDIAN BOOST_ENDIAN_LITTLE_BYTE
+#endif
+#if !defined(BOOST_BIG_ENDIAN)
+#define BOOST_BIG_ENDIAN BOOST_ENDIAN_BIG_BYTE
+#endif
+#else
 #include <boost/detail/endian.hpp>
+#endif
+
 #include <boost/spirit/include/qi.hpp>
 #include <boost/spirit/include/phoenix.hpp>
 #include <boost/range/iterator_range.hpp>

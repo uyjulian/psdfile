@@ -24,8 +24,8 @@
   #include <stdint.h>
 #endif
 
-typedef float  float32_t;
-typedef double float64_t;
+  typedef float  float32_t;
+  typedef double float64_t;
 
 namespace psd {
   // ビット情報を維持した型変換用のunion

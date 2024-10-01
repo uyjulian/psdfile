@@ -4,8 +4,11 @@
 
 #define USE_ZLIB
 #ifdef USE_ZLIB
+
+// vcpkg環境のzlibではオンにするとリンクエラーになる
+// #define ZLIB_WINAPI
+
 #if 0
-#define ZLIB_WINAPI
 #define NOMINMAX
 #endif
 #include <zlib.h>
