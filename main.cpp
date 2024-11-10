@@ -8,6 +8,10 @@
 
 #define BASENAME L"psd"
 
+#if 1
+#define iTJSBinaryStream tTJSBinaryStream
+#endif
+
 /**
  * PSDストレージ
  */
