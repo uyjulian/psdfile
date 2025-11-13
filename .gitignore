@@ -24,4 +24,13 @@ vs2015
 *.a
 *.7z
 *.dep.make
-build-*/
+=======
+/packages
+/x86
+/Debug
+/ipch
+/Release
+/build
+/savedata
+/.vs
+/.vscode

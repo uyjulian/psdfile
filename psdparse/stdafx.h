@@ -50,3 +50,9 @@
 #include <boost/iostreams/device/mapped_file.hpp>
 
 #endif
+
+#if 1
+#include <windows.h>
+#include <tp_stub.h>
+#include <ncbind.hpp>
+#endif
