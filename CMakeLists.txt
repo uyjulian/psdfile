@@ -1,44 +1,25 @@
-cmake_minimum_required(VERSION 3.16)
-
-# UTF-8 source
-add_compile_options("$<$<AND:$<C_COMPILER_ID:MSVC>,$<COMPILE_LANGUAGE:C>>:/utf-8>")
-add_compile_options("$<$<AND:$<CXX_COMPILER_ID:MSVC>,$<COMPILE_LANGUAGE:CXX>>:/utf-8>")
-add_compile_options("$<$<AND:$<CXX_COMPILER_ID:MSVC>,$<COMPILE_LANGUAGE:CXX>>:/Zc:__cplusplus>")
-
-# MSVC static runtime
-set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-
-set(PROJECT_NAME psdfile)
-set(PROJECT_VERSION 1.00)
-
-project(${PROJECT_NAME} VERSION ${PROJECT_VERSION})
+include(../tp_stub/krkrz.cmake)
 
 add_subdirectory(psdparse)
 
-if(NOT TARGET ncbind)
-add_subdirectory(../ncbind ${CMAKE_CURRENT_BINARY_DIR}/ncbind)
-endif()
-
-add_library(${PROJECT_NAME} SHARED
-	psdclass.cpp
-	psdclass_loadmem.cpp
-	psdclass_loadstream.cpp
-	psdclass_loadstreambase.cpp
-	stdafx.cpp
-	main.cpp
+krkrz_plugin(psdfile
+	NCBIND
+	SOURCES
+		psdclass.cpp
+		psdclass_loadmem.cpp
+		psdclass_loadstream.cpp
+		psdclass_loadstreambase.cpp
+		stdafx.cpp
+		main.cpp
+	LIBRARIES
+		psdparse
 )
 
 if(MSVC)
-    # MSVC用設定
-    set_source_files_properties(
+	# MSVC用設定
+	set_source_files_properties(
 		psdclass_loadmem.cpp
 		psdclass_loadstream.cpp
 		PROPERTIES COMPILE_FLAGS "/Od"
-    )
+	)
 endif()
-
-
-target_link_libraries(${PROJECT_NAME} PUBLIC
-	ncbind
-	psdparse
-)
